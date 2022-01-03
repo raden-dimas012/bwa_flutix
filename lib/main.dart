@@ -1,10 +1,10 @@
+import 'package:bwa_flutix/bloc/theme_bloc.dart';
 import 'package:bwa_flutix/bloc/user_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:bwa_flutix/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 
 import 'ui/pages/pages.dart';
 import 'bloc/blocs.dart';
@@ -23,15 +23,16 @@ class MyApp extends StatelessWidget {
       value: AuthServices.userStream,
       // initialData: User,
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => PageBloc()),
-           BlocProvider(create: (_) => UserBloc()),
-        ],
-        child: const MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: Wrapper(),
-        ),
-      ),
+          providers: [
+            BlocProvider(create: (_) => PageBloc()),
+            BlocProvider(create: (_) => UserBloc()),
+            BlocProvider(create: (_) => ThemeBloc()),
+          ],
+          child: BlocBuilder<ThemeBloc, ThemeState>(
+              builder: (_, themeState) => MaterialApp(
+                  theme: themeState.themeData,
+                  debugShowCheckedModeBanner: false,
+                  home: const Wrapper()))),
     );
   }
 }
