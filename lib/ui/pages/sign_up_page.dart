@@ -93,13 +93,15 @@ class _SignUpPageState extends State<SignUpPage> {
                             onTap: () async {
                               if (widget.registrationData.profileImage ==
                                   null) {
-                                // widget.registrationData.profileImage =
-                                //     await getImage();
+                                widget.registrationData.profileImage =
+                                    await getImage();
                               } else {
                                 widget.registrationData.profileImage = null;
                               }
 
-                              setState(() {});
+                              setState(() {
+
+                              });
                             },
                             child: Container(
                               height: 28,
@@ -211,9 +213,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           widget.registrationData.password =
                               passwordController.text;
 
-                          // context
-                          //     .bloc<PageBloc>()
-                          //     .add(GoToPreferencePage(widget.registrationData));
+                          context
+                              .bloc<PageBloc>()
+                              .add(GoToPreferencePage(widget.registrationData));
                         }
                       })
                 ],

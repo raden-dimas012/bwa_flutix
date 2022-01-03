@@ -26,6 +26,8 @@ class Wrapper extends StatelessWidget {
                 ? const SignInPage()
                 : (pageState is OnRegistrationPage)
                     ? SignUpPage(pageState.registrationData)
-                    : const MainPage());
+                    : (pageState is OnPreferencePage)
+                        ? PreferencePage(pageState.registrationData)
+                        : const MainPage());
   }
 }
