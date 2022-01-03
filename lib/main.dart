@@ -1,3 +1,4 @@
+import 'package:bwa_flutix/bloc/user_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:bwa_flutix/services/services.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => PageBloc()),
+           BlocProvider(create: (_) => UserBloc()),
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
