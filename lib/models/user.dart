@@ -2,12 +2,12 @@ part of 'models.dart';
 
 class User extends Equatable {
   final String id;
-  final String? email;
-  final String? name;
-  final String? profilePicture;
-  final List<String>? selectedGenres;
-  final String? selectedLanguage;
-  final int? balance;
+  final String email;
+  final String name;
+  final String profilePicture;
+  final List<String> selectedGenres;
+  final String selectedLanguage;
+  final int balance;
 
   const User(this.id, this.email,
       {this.name,
@@ -16,7 +16,7 @@ class User extends Equatable {
       this.selectedLanguage,
       this.balance});
 
-  User copyWith({String? name, String? profilePicture, int? balance}) =>
+  User copyWith({String name, String profilePicture, int balance}) =>
       User(id, email,
           name: name ?? this.name,
           profilePicture: profilePicture ?? this.profilePicture,
@@ -30,7 +30,7 @@ class User extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
+  List<Object> get props => [
         id,
         email,
         name,
