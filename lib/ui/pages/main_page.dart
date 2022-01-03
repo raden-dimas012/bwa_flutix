@@ -42,12 +42,13 @@ class _MainPageState extends State<MainPage> {
                 bottomNavBarIndex = index;
               });
             },
-            // children: <Widget>[
-            //   MoviePage(),
-            //   TicketPage(
-            //     isExpiredTicket: widget.isExpired,
-            //   )
-            // ],
+            children: const <Widget>[
+              MoviePage(),
+              Center(child:Text("My Tickets"))
+              // TicketPage(
+              //   isExpiredTicket: widget.isExpired,
+              // )
+            ],
           ),
           createCustomBottomNavBar(),
           Align(
@@ -69,6 +70,8 @@ class _MainPageState extends State<MainPage> {
                   ),
                   onPressed: () {
                     // context.bloc<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
+                    context.bloc<UserBloc>().add(SignOut());
+                    AuthServices.signOut();
                   }),
             ),
           )
