@@ -1,3 +1,4 @@
+import 'package:bwa_flutix/bloc/movie_bloc.dart';
 import 'package:bwa_flutix/bloc/theme_bloc.dart';
 import 'package:bwa_flutix/bloc/user_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (_) => PageBloc()),
             BlocProvider(create: (_) => UserBloc()),
             BlocProvider(create: (_) => ThemeBloc()),
+            BlocProvider(create: (_) => MovieBloc()..add(FetchMovies())),
           ],
           child: BlocBuilder<ThemeBloc, ThemeState>(
               builder: (_, themeState) => MaterialApp(
