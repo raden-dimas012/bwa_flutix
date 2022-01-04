@@ -44,6 +44,7 @@ dependencies:
   material_design_icons_flutter: ^5.0.6595
   provider: ^4.0.4
   google_fonts: ^1.1.2
+  shimmer: ^1.1.1
   
 
 dev_dependencies:

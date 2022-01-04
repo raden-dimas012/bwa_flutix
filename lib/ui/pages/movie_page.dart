@@ -138,7 +138,7 @@ class MoviePage extends StatelessWidget {
             },
           ),
         ),
-
+        // GENRE SEARCH
         Container(
           margin:
               const EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
@@ -170,6 +170,7 @@ class MoviePage extends StatelessWidget {
           },
         ),
 
+        // COMING SOON
         Container(
           margin: const EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
           child: Text(
@@ -205,6 +206,26 @@ class MoviePage extends StatelessWidget {
             },
           ),
         ),
+        //PROMO 
+          Container(
+          margin: const EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
+          child: Text(
+            "Get Lucky Day",
+            style: blackTextFont.copyWith(
+                fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Column(
+          children: dummyPromos
+              .map((e) => Padding(
+                  padding:
+                      const EdgeInsets.fromLTRB(defaultMargin, 0, defaultMargin, 16),
+                  child: PromoCard(e)))
+              .toList(),
+        ),
+        const SizedBox(
+          height: 100,
+        )
       ],
     );
   }
