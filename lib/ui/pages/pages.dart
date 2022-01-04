@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:bwa_flutix/bloc/ticket_bloc.dart';
+import 'package:bwa_flutix/extensions/extensions.dart';
 import 'package:bwa_flutix/models/models.dart';
 import 'package:bwa_flutix/services/services.dart';
 import 'package:bwa_flutix/shared/shared.dart';
@@ -28,6 +30,8 @@ part 'account_confirmation_page.dart';
 part 'movie_detail_page.dart';
 part 'select_schedule_page.dart';
 part 'select_seat_page.dart';
+part 'checkout_page.dart';
+part 'success_page.dart';
 
 
 

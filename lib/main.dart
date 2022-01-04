@@ -1,5 +1,6 @@
 import 'package:bwa_flutix/bloc/movie_bloc.dart';
 import 'package:bwa_flutix/bloc/theme_bloc.dart';
+import 'package:bwa_flutix/bloc/ticket_bloc.dart';
 import 'package:bwa_flutix/bloc/user_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (_) => UserBloc()),
             BlocProvider(create: (_) => ThemeBloc()),
             BlocProvider(create: (_) => MovieBloc()..add(FetchMovies())),
+            BlocProvider(create: (_) => TicketBloc())
           ],
           child: BlocBuilder<ThemeBloc, ThemeState>(
               builder: (_, themeState) => MaterialApp(

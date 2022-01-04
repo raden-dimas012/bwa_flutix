@@ -117,9 +117,9 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                           ),
                           onPressed: selectedSeats.isNotEmpty
                               ? () {
-                                  // context.bloc<PageBloc>().add(GoToCheckoutPage(
-                                  //     widget.ticket
-                                  //         .copyWith(seats: selectedSeats)));
+                                  context.bloc<PageBloc>().add(GoToCheckoutPage(
+                                      widget.ticket
+                                          .copyWith(seats: selectedSeats)));
                                 }
                               : null),
                     ),
