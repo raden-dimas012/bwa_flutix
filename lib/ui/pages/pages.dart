@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bwa_flutix/bloc/blocs.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:random_string/random_string.dart';
 
 part 'main_page.dart';
@@ -32,6 +33,9 @@ part 'select_schedule_page.dart';
 part 'select_seat_page.dart';
 part 'checkout_page.dart';
 part 'success_page.dart';
+part 'ticket_page.dart';
+part 'ticket_detail_page.dart';
+part 'profile_page.dart';
 
 
 
