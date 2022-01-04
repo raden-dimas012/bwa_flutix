@@ -19,62 +19,62 @@ class MovieServices {
     return result.map((e) => Movie.fromJson(e)).toList();
   }
 
-  // static Future<MovieDetail> getDetails(Movie movie,
-  //     {int movieID, http.Client client}) async {
-  //   String url =
-  //       "https://api.themoviedb.org/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US";
+  static Future<MovieDetail> getDetails(Movie movie,
+      {int movieID, http.Client client}) async {
+    String url =
+        "https://api.themoviedb.org/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US";
 
-  //   client ??= http.Client();
+    client ??= http.Client();
 
-  //   var response = await client.get(url);
-  //   var data = json.decode(response.body);
+    var response = await client.get(url);
+    var data = json.decode(response.body);
 
-  //   List genres = (data as Map<String, dynamic>)['genres'];
-  //   String language;
+    List genres = (data as Map<String, dynamic>)['genres'];
+    String language;
 
-  //   switch ((data as Map<String, dynamic>)['original_language'].toString()) {
-  //     case 'ja':
-  //       language = "Japanese";
-  //       break;
-  //     case 'id':
-  //       language = "Indonesian";
-  //       break;
-  //     case 'ko':
-  //       language = "Korean";
-  //       break;
-  //     case 'en':
-  //       language = "English";
-  //       break;
-  //   }
+    switch ((data as Map<String, dynamic>)['original_language'].toString()) {
+      case 'ja':
+        language = "Japanese";
+        break;
+      case 'id':
+        language = "Indonesian";
+        break;
+      case 'ko':
+        language = "Korean";
+        break;
+      case 'en':
+        language = "English";
+        break;
+    }
 
-  //   return movieID != null
-  //       ? MovieDetail(Movie.fromJson(data),
-  //           language: language,
-  //           genres: genres
-  //               .map((e) => (e as Map<String, dynamic>)['name'].toString())
-  //               .toList())
-  //       : MovieDetail(movie,
-  //           language: language,
-  //           genres: genres
-  //               .map((e) => (e as Map<String, dynamic>)['name'].toString())
-  //               .toList());
-  // }
+    return movieID != null
+        ? MovieDetail(Movie.fromJson(data),
+            language: language,
+            genres: genres
+                .map((e) => (e as Map<String, dynamic>)['name'].toString())
+                .toList())
+        : MovieDetail(movie,
+            language: language,
+            genres: genres
+                .map((e) => (e as Map<String, dynamic>)['name'].toString())
+                .toList());
+  }
 
-  // static Future<List<Credit>> getCredits(int movieID,
-  //     {http.Client client}) async {
-  //   String url =
-  //       "https://api.themoviedb.org/3/movie/$movieID/credits?api_key=$apiKey";
+  static Future<List<Credit>> getCredits(int movieID,
+      {http.Client client}) async {
+    String url =
+        "https://api.themoviedb.org/3/movie/$movieID/credits?api_key=$apiKey";
 
-  //   client ??= http.Client();
+    client ??= http.Client();
 
-  //   var response = await client.get(url);
-  //   var data = json.decode(response.body);
+    var response = await client.get(url);
+    var data = json.decode(response.body);
 
-  //   return ((data as Map<String, dynamic>)['cast'] as List)
-  //       .map((e) => Credit(
-  //           name: (e as Map<String, dynamic>)['name'],
-  //           profilePath: (e as Map<String, dynamic>)['profile_path']))
-  //       .take(8)
-  //       .toList();
-  // }
+    return ((data as Map<String, dynamic>)['cast'] as List)
+        .map((e) => Credit(
+            name: (e as Map<String, dynamic>)['name'],
+            profilePath: (e as Map<String, dynamic>)['profile_path']))
+        .take(8)
+        .toList();
+  }
 }

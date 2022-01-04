@@ -45,3 +45,32 @@ class GoToAccountConfirmationPage extends PageEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoToMovieDetailPage extends PageEvent {
+  final Movie movie;
+
+  const GoToMovieDetailPage(this.movie);
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [movie];
+  
+}
+
+class GoToSelectSchedulePage extends PageEvent {
+  final MovieDetail movieDetail;
+
+  const GoToSelectSchedulePage(this.movieDetail);
+
+  @override
+  List<Object> get props => [movieDetail];
+}
+
+class GoToSelectSeatPage extends PageEvent {
+  final Ticket ticket;
+
+  const GoToSelectSeatPage(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}

@@ -11,7 +11,7 @@ class PageBloc extends Bloc<PageEvent, PageState> {
   Stream<PageState> mapEventToState(
     PageEvent event,
   ) async* {
-     if (event is GoToSplashPage) {
+    if (event is GoToSplashPage) {
       yield OnSplashPage();
     } else if (event is GoToLoginPage) {
       yield OnLoginPage();
@@ -23,8 +23,12 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       yield OnPreferencePage(event.registrationData);
     } else if (event is GoToAccountConfirmationPage) {
       yield OnAccountConfirmationPage(event.registrationData);
+    } else if (event is GoToMovieDetailPage) {
+      yield OnMovieDetailPage(event.movie);
+    } else if (event is GoToSelectSchedulePage) {
+      yield OnSelectSchedulePage(event.movieDetail);
+    } else if (event is GoToSelectSeatPage) {
+      yield OnSelectSeatPage(event.ticket);
     }
   }
 }
-
-

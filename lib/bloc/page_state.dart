@@ -49,4 +49,30 @@ class OnAccountConfirmationPage extends PageState {
   List<Object> get props => [];
 }
 
+class OnMovieDetailPage extends PageState {
+  final Movie movie;
+
+  const OnMovieDetailPage(this.movie);
+  @override
+  List<Object> get props => [movie];
+}
+
+class OnSelectSchedulePage extends PageState {
+  final MovieDetail movieDetail;
+
+  const OnSelectSchedulePage(this.movieDetail);
+
+  @override
+  List<Object> get props => [movieDetail];
+}
+
+class OnSelectSeatPage extends PageState {
+  final Ticket ticket;
+
+  const OnSelectSeatPage(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}
+
 

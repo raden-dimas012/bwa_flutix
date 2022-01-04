@@ -123,9 +123,9 @@ class MoviePage extends StatelessWidget {
                           child: MovieCard(
                             movies[index],
                             onTap: () {
-                              // context
-                              //     .bloc<PageBloc>()
-                              //     .add(GoToMovieDetailPage(movies[index]));
+                              context
+                                  .bloc<PageBloc>()
+                                  .add(GoToMovieDetailPage(movies[index]));
                             },
                           ),
                         ));
