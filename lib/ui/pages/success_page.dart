@@ -62,13 +62,13 @@ class SuccessPage extends StatelessWidget {
                               ),
                               onPressed: () {
                                 if (ticket == null) {
-                                  // context
-                                  //     .bloc<PageBloc>()
-                                  //     .add(GoToWalletPage(GoToMainPage()));
+                                  context
+                                      .bloc<PageBloc>()
+                                      .add(GoToWalletPage(GoToMainPage()));
                                 } else {
-                                  // context
-                                  //     .bloc<PageBloc>()
-                                  //     .add(GoToMainPage(bottomNavBarIndex: 1));
+                                  context
+                                      .bloc<PageBloc>()
+                                      .add(const GoToMainPage(bottomNavBarIndex: 1));
                                 }
                               }),
                         ),

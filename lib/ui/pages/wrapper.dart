@@ -6,20 +6,22 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     auth.User firebaseUser = Provider.of<auth.User>(context);
+
     if (firebaseUser == null) {
       if (prevPageEvent is! GoToSplashPage) {
         prevPageEvent = GoToSplashPage();
         context.bloc<PageBloc>().add(prevPageEvent);
-        // BlocProvider.of<PageBloc>(context.read());
       }
     } else {
       if (prevPageEvent is! GoToMainPage) {
         context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
         context.bloc<TicketBloc>().add(GetTickets(firebaseUser.uid));
+
         prevPageEvent = GoToMainPage();
         context.bloc<PageBloc>().add(prevPageEvent);
       }
     }
+
     return BlocBuilder<PageBloc, PageState>(
         builder: (_, pageState) => (pageState is OnSplashPage)
             ? const SplashPage()
@@ -50,6 +52,29 @@ class Wrapper extends StatelessWidget {
                                                     : (pageState
                                                             is OnProfilePage)
                                                         ? ProfilePage()
-                                                        : const MainPage());
+                                                        : (pageState
+                                                                is OnTopUpPage)
+                                                            ? TopUpPage(
+                                                                pageState
+                                                                    .pageEvent)
+                                                            : (pageState
+                                                                    is OnWalletPage)
+                                                                ? WalletPage(
+                                                                    pageState
+                                                                        .pageEvent)
+                                                                : (pageState
+                                                                        is OnEditProfilePage)
+                                                                    ? EditProfilePage(
+                                                                        pageState
+                                                                            .user)
+                                                                    : (pageState
+                                                                            is OnMainPage)
+                                                                        ? MainPage(
+                                                                            bottomNavBarIndex:
+                                                                                pageState.bottomNavBarIndex,
+                                                                            isExpired:
+                                                                                pageState.isExpired,
+                                                                          )
+                                                                        : Container());
   }
 }

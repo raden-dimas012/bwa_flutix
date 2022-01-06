@@ -15,8 +15,12 @@ class GoToLoginPage extends PageEvent {
 }
 
 class GoToMainPage extends PageEvent {
+  final int bottomNavBarIndex;
+  final bool isExpired;
+
+  const GoToMainPage({this.bottomNavBarIndex = 0, this.isExpired = false});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [bottomNavBarIndex, isExpired];
 }
 
 class GoToRegistrationPage extends PageEvent {
@@ -54,7 +58,6 @@ class GoToMovieDetailPage extends PageEvent {
   @override
   // TODO: implement props
   List<Object> get props => [movie];
-  
 }
 
 class GoToSelectSchedulePage extends PageEvent {
@@ -108,29 +111,29 @@ class GoToProfilePage extends PageEvent {
   List<Object> get props => [];
 }
 
-// class GoToTopUpPage extends PageEvent {
-//   final PageEvent pageEvent;
+class GoToTopUpPage extends PageEvent {
+  final PageEvent pageEvent;
 
-//   GoToTopUpPage(this.pageEvent);
+  const GoToTopUpPage(this.pageEvent);
 
-//   @override
-//   List<Object> get props => [pageEvent];
-// }
+  @override
+  List<Object> get props => [pageEvent];
+}
 
-// class GoToWalletPage extends PageEvent {
-//   final PageEvent pageEvent;
+class GoToWalletPage extends PageEvent {
+  final PageEvent pageEvent;
 
-//   GoToWalletPage(this.pageEvent);
+  const GoToWalletPage(this.pageEvent);
 
-//   @override
-//   List<Object> get props => [pageEvent];
-// }
+  @override
+  List<Object> get props => [pageEvent];
+}
 
-// class GoToEditProfilePage extends PageEvent {
-//   final User user;
+class GoToEditProfilePage extends PageEvent {
+  final User user;
 
-//   GoToEditProfilePage(this.user);
+  const GoToEditProfilePage(this.user);
 
-//   @override
-//   List<Object> get props => [user];
-// }
+  @override
+  List<Object> get props => [user];
+}
